@@ -17,13 +17,14 @@ echo "in script file"
 git clone https://github.com/Harishk9697/robotframework-test-suite.git
 #repo_basename=$(basename "$github_url")
 echo $HELLO
+mkdir report
 ls
-robot --outputdir /report robotframework-test-suite/About.robot
+robot --outputdir /cloneRepos/report robotframework-test-suite/About.robot
 
 if [ $? -ne 0 ]; then
     echo "Command robot execution failed"
-    aws s3 cp /report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
+    aws s3 cp /cloneRepos/report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
 else
     echo "Command robot execution passed"
-    aws s3 cp /report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
+    aws s3 cp /cloneRepos/report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
 fi
