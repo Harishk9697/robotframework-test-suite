@@ -42,7 +42,7 @@ RUN pip install robotframework-seleniumlibrary==5.1.3
 RUN pip install selenium==3.141.0 
 RUN pip install setuptools==47.1.0 
 
-CMD ["sh", "test2.sh"]
+CMD ["sh test2.sh"]
 
 #copy file from S3 bucket to ec2
 #RUN aws s3 cp s3://tf-rf-scripts-spe-qaqc-bucket/scripts/TestSuite.robot testsuite.robot
