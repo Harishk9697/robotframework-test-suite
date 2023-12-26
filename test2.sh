@@ -17,9 +17,19 @@ echo "in script file"
 git clone https://github.com/Harishk9697/robotframework-test-suite.git
 #repo_basename=$(basename "$github_url")
 echo $HELLO
-mkdir report
+report_folder_to_cleanup="report"
+if [ -d "$report_folder_to_cleanup" ]
+then
+    echo "cleaning up folder $report_folder_to_cleanup"
+    rm -rf "$report_folder_to_cleanup"
+    mkdir report
+else
+    echo "$report_folder_to_cleanup does not exist."
+    mkdir report
+fi
+
 ls
-robot --outputdir /cloneRepos/report robotframework-test-suite/About.robot
+robot --outputdir /cloneRepos/report .
 
 if [ $? -ne 0 ]; then
     echo "Command robot execution failed"
