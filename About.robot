@@ -10,6 +10,7 @@ TC2_ProdHomePage
     Set Window Size    1968    856
     Comment    Maximize Browser Window
     sleep    20s
+    Capture Page Screenshot
     ${IsElementVisible}=    Get Element Count    //*[@aria-label='Privacy']
     Comment    Run Keyword If    ${IsElementVisible}>0    Selenium2Library.Click Element    //button[contains(text(),'Accept all cookies')]
     ${src}    Selenium2Library.Get Element Attribute    (//img[@class='img-fluid'])[1]    src
