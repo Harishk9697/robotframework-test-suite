@@ -6,7 +6,7 @@ Library           Selenium2Library
 
 *** Test Cases ***
 TC2_ProdHomePage
-    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
+    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--disable-gpu");add_argument("--no-sandbox")
     Set Window Size    1968    856
     Comment    Maximize Browser Window
     sleep    20s
