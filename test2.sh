@@ -1,14 +1,15 @@
 #!/bin/bash
-mkdir cloneRepos
 folder_to_cleanup="cloneRepos"
 
-#if [ -d "$folder_to_cleanup" ]
-#then
-#    echo "cleaning up folder $folder_to_cleanup"
-#    rm -rf "$folder_to_cleanup"
-#else
-#    echo "$folder_to_cleanup does not exist."
-#fi
+if [ -d "$folder_to_cleanup" ]
+then
+    echo "cleaning up folder $folder_to_cleanup"
+    rm -rf "$folder_to_cleanup"
+    mkdir cloneRepos
+else
+    echo "$folder_to_cleanup does not exist."
+    mkdir cloneRepos
+fi
 
 cd cloneRepos
 echo "in script file"
