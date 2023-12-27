@@ -8,6 +8,8 @@ Library           Selenium2Library
 TC2_ProdHomePage
     Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--disable-gpu");add_argument("--no-sandbox")
     Set Browser Implicit Wait    5s
+    Maximize Browser Window
+    ${width}    ${height}=    Get Window Size
     Set Window Size    1968    856
     Comment    Maximize Browser Window
     sleep    10s
