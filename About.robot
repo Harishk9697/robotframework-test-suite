@@ -6,11 +6,11 @@ Library           Selenium2Library
 
 *** Test Cases ***
 TC2_ProdHomePage
+    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--disable-gpu");add_argument("--no-sandbox")
     Set Browser Implicit Wait    5s
-    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
     Set Window Size    1968    856
     Comment    Maximize Browser Window
-    sleep    20s
+    sleep    10s
     Capture Page Screenshot
     ${IsElementVisible}=    Get Element Count    //*[@aria-label='Privacy']
     Comment    Run Keyword If    ${IsElementVisible}>0    Selenium2Library.Click Element    //button[contains(text(),'Accept all cookies')]
