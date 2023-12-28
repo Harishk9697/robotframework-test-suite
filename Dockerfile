@@ -7,15 +7,15 @@ RUN yum -y install epel-release update wget unzip git
 #downloading and installating chrome driver and browser
 WORKDIR /usr/bin
 
-RUN  wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
-RUN  unzip chromedriver-linux64.zip -d /usr/bin
-RUN  mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
+RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
+RUN unzip chromedriver-linux64.zip -d /usr/bin
+RUN mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
 RUN chmod +x /usr/bin/chromedriver
- 
+
 # install headless chrome
-RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum install google-chrome-stable_current_x86_64.rpm -y
-RUN  mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
