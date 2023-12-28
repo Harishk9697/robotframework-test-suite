@@ -16,6 +16,7 @@ RUN chmod +x /usr/bin/chromedriver
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum install google-chrome-stable_current_x86_64.rpm -y
 RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+RUN chmod +x /usr/bin/google-chrome
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
