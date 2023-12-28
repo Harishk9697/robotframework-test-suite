@@ -12,13 +12,7 @@ else
 fi
 
 cd cloneRepos
-echo "in script file"
-#github_url="https://github.com/Harishk9697/robotframework-test-suite.git"
-#echo $github_url
-aws s3 cp --acl bucket-owner-full-control --recursive s3://tf-rf-scripts-spe-qaqc-bucket/JeopardyTestCase/JEOPARDY/ /cloneRepos && echo "Copied test cases from s3 bucket" || echo "Copying test cases from s3 bucket failed"
-#git clone https://github.com/Harishk9697/robotframework-test-suite.git
-#repo_basename=$(basename "$github_url")
-echo $HELLO
+
 report_folder_to_cleanup="report"
 if [ -d "$report_folder_to_cleanup" ]
 then
@@ -29,6 +23,14 @@ else
     echo "$report_folder_to_cleanup does not exist."
     mkdir report
 fi
+
+echo "in script file"
+#github_url="https://github.com/Harishk9697/robotframework-test-suite.git"
+#echo $github_url
+aws s3 cp --acl bucket-owner-full-control --recursive s3://tf-rf-scripts-spe-qaqc-bucket/JeopardyTestCase/JEOPARDY/ . && echo "Copied test cases from s3 bucket" || echo "Copying test cases from s3 bucket failed"
+#git clone https://github.com/Harishk9697/robotframework-test-suite.git
+#repo_basename=$(basename "$github_url")
+echo $HELLO
 
 ls
 robot --outputdir /cloneRepos/report .
