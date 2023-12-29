@@ -2,7 +2,7 @@ FROM centos:7
 
 LABEL org.label-schema.schema-version=1.0 org.label-schema.name="CentOS Base"
 
-RUN yum -y install epel-release update wget unzip git
+RUN yum install -y epel-release update wget unzip git xorg-x11-server-Xvfb gtk3 wine
 
 #downloading and installating chrome driver and browser
 WORKDIR /usr/bin
@@ -14,9 +14,9 @@ RUN chmod +x /usr/bin/chromedriver
 
 # install headless chrome
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-RUN yum install google-chrome-stable_current_x86_64.rpm -y
-RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
-RUN chmod +x /usr/bin/google-chrome
+RUN yum localinstall -y  google-chrome-stable_current_x86_64.rpm
+#RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+#RUN chmod +x /usr/bin/google-chrome
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -42,6 +42,9 @@ RUN pip install robotframework-selenium2library==3.0.0
 RUN pip install robotframework-seleniumlibrary==5.1.3
 RUN pip install selenium==3.141.0 
 RUN pip install setuptools==47.1.0 
+
+#Install Autoit
+RUN pip install autoit
 
 CMD ["sh test2.sh"]
 
