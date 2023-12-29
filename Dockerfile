@@ -43,7 +43,7 @@ RUN pip install robotframework-seleniumlibrary==5.1.3
 RUN pip install selenium==3.141.0 
 RUN pip install setuptools==47.1.0 
 RUN pip install robotframework-requests
-RUN pip install robotframework-browser
+#RUN pip install robotframework-browser
 RUN pip install  robotframework-pabot==1.0.0
 
 #Install Autoit
