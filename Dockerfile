@@ -26,8 +26,8 @@ RUN yum update -y
 RUN yum install -y python3
 
 #setting python environment
-RUN python3 -m venv /automation_Robot_app
-RUN source /automation_Robot_app/bin/activate
+#RUN python3 -m venv /automation_Robot_app
+#RUN source /automation_Robot_app/bin/activate
 
 WORKDIR /automation_Robot_app
 COPY test2.sh .
@@ -49,8 +49,6 @@ RUN pip install  robotframework-pabot==1.0.0
 #Install Autoit
 RUN pip install autoit
 RUN pip install pyautoit
-
-EXPOSE 5900
 
 CMD ["sh test2.sh"]
 
