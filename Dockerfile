@@ -9,13 +9,13 @@ WORKDIR /usr/bin
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip -d /usr/bin
-RUN mv chromedriver-linux64/chromedriver /usr/bin
+RUN mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 RUN chmod +x /usr/local/bin/chromedriver
 
 # install headless chrome
 RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum install -y google-chrome-stable_current_x86_64.rpm
-RUN mv /usr/bin/google-chrome-stable /usr/local/bin/google-chrome
+RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
 #RUN chmod +x /usr/bin/google-chrome
 
 #install aws cli
@@ -48,6 +48,7 @@ RUN pip install  robotframework-pabot==1.0.0
 
 #Install Autoit
 RUN pip install autoit
+RUN pip install pyautoit
 
 CMD ["sh test2.sh"]
 
