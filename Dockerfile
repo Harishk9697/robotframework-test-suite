@@ -2,7 +2,7 @@ FROM centos:7
 
 LABEL org.label-schema.schema-version=1.0 org.label-schema.name="CentOS Base"
 
-RUN yum install -y epel-release update wget unzip git xorg-x11-server-Xvfb gtk3 wine
+RUN yum install -y epel-release wget unzip git xorg-x11-server-Xvfb gtk3
 
 #downloading and installating chrome driver and browser
 WORKDIR /usr/bin
@@ -13,9 +13,9 @@ RUN mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
 RUN chmod +x /usr/bin/chromedriver
 
 # install headless chrome
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-RUN yum localinstall -y  google-chrome-stable_current_x86_64.rpm
-#RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+RUN yum install -y google-chrome-stable_current_x86_64.rpm
+RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
 #RUN chmod +x /usr/bin/google-chrome
 
 #install aws cli
