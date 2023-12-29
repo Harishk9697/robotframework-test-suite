@@ -9,27 +9,25 @@ WORKDIR /usr/bin
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip -d /usr/bin
-RUN mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-RUN chmod +x /usr/bin/chromedriver
+RUN mv chromedriver-linux64/chromedriver /usr/bin
+RUN chmod +x /usr/local/bin/chromedriver
 
 # install headless chrome
 RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum install -y google-chrome-stable_current_x86_64.rpm
-RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+RUN mv /usr/bin/google-chrome-stable /usr/local/bin/google-chrome
 #RUN chmod +x /usr/bin/google-chrome
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip && ./aws/install
 
-#RUN yum update -y
-#RUN yum install -y python3
+RUN yum update -y
+RUN yum install -y python3
 
 #setting python environment
-#RUN python3 -m venv /automation_Robot_app 
-#RUN source /automation_Robot_app/bin/activate
-
-FROM python:3
+RUN python3 -m venv /automation_Robot_app
+RUN source /automation_Robot_app/bin/activate
 
 WORKDIR /automation_Robot_app
 COPY test2.sh .
@@ -46,6 +44,7 @@ RUN pip install selenium==3.141.0
 RUN pip install setuptools==47.1.0 
 RUN pip install robotframework-requests
 RUN pip install robotframework-browser
+RUN pip install  robotframework-pabot==1.0.0
 
 #Install Autoit
 RUN pip install autoit
