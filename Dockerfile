@@ -9,7 +9,7 @@ WORKDIR /usr/bin
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip -d /usr/bin
-RUN mv /chromedriver-linux64/chromedriver /usr/bin/chromedriver
+RUN mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
 RUN chmod +x /usr/bin/chromedriver
 
 # install headless chrome
