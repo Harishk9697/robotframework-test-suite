@@ -5,12 +5,13 @@ LABEL org.label-schema.schema-version=1.0 org.label-schema.name="CentOS Base"
 RUN yum install -y epel-release wget unzip git xorg-x11-server-Xvfb gtk3
 
 #downloading and installating chrome driver and browser
+USER root
 WORKDIR /usr/bin
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip -d /usr/bin
-RUN mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-RUN chmod +x /usr/bin/chromedriver
+RUN mv chromedriver-linux64/chromedriver /usr/local/lib/chromedriver
+RUN chmod +x /usr/local/lib/chromedriver
 
 # install headless chrome
 RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
@@ -26,10 +27,11 @@ RUN yum update -y
 RUN yum install -y python3
 
 #setting python environment
-#RUN python3 -m venv /automation_Robot_app
-#RUN source /automation_Robot_app/bin/activate
+RUN python3 -m venv /automation_Robot_app
+RUN source /automation_Robot_app/bin/activate
 
 WORKDIR /automation_Robot_app
+COPY /usr/local/lib /automation_Robot_app/bin
 COPY test2.sh .
 RUN chmod +x test2.sh
 #installing pip
