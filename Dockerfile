@@ -22,12 +22,14 @@ RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip && ./aws/install
 
-RUN yum update -y
-RUN yum install -y python3
+#RUN yum update -y
+#RUN yum install -y python3
 
 #setting python environment
-RUN python3 -m venv /automation_Robot_app 
-RUN source /automation_Robot_app/bin/activate
+#RUN python3 -m venv /automation_Robot_app 
+#RUN source /automation_Robot_app/bin/activate
+
+FROM python:3
 
 WORKDIR /automation_Robot_app
 COPY test2.sh .
@@ -42,6 +44,8 @@ RUN pip install robotframework-selenium2library==3.0.0
 RUN pip install robotframework-seleniumlibrary==5.1.3
 RUN pip install selenium==3.141.0 
 RUN pip install setuptools==47.1.0 
+RUN pip install robotframework-requests
+RUN pip install robotframework-browser
 
 #Install Autoit
 RUN pip install autoit
