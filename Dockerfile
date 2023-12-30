@@ -1,7 +1,7 @@
 FROM centos:7
 
 RUN yum update -y && \
-    yum install -y epel-releasegcc python3 python3-pip pyhton3-devel xorg-x11-server-Xvfb gtk3 wget unzip git
+    yum install -y epel-release gcc python3 python3-pip xorg-x11-server-Xvfb gtk3 wget unzip git
 
 USER root
 WORKDIR /usr/bin
@@ -22,7 +22,7 @@ RUN pip install  robotframework-pabot==1.0.0
 RUN pip install autoit
 RUN pip install pyautoit
 
-#COPY /usr/local/lib/python3.6 /usr/bin
+RUN mv /usr/local/lib/python3.6 /usr/bin
 
 #Install chrome
 RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
