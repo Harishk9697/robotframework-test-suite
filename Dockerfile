@@ -9,7 +9,7 @@ RUN yum update -y && \
 RUN yum install -y python3-pip
 RUN python3 -m pip install --upgrade pip 
 
-USER pwuser
+#USER pwuser
 RUN pip3 install --user robotframework==5
 RUN pip3 install --user robotframework-browser
 RUN ~/.local/bin/rfbrowser init
@@ -51,7 +51,5 @@ RUN unzip awscliv2.zip && ./aws/install
 #WORKDIR /usr/src/app
 COPY test2.sh .
 RUN chmod +x test2.sh
-
-EXPOSE 5900
 
 CMD ["robot"]
