@@ -7,7 +7,7 @@ USER root
 WORKDIR /usr/bin
 
 #installing pip
-RUN yum install python3 python3-pip
+RUN yum install -y python3 python3-pip
 RUN python3 -m pip install --upgrade pip 
 RUN pip install robotframework==5
 RUN pip install wheel==0.37.0 
