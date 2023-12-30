@@ -4,10 +4,7 @@ RUN yum update -y && \
     yum install -y epel-releasegcc python3 python3-pip pyhton3-devel xorg-x11-server-Xvfb gtk3 wget unzip git
 
 USER root
-
-#setting python environment
-RUN python3 -m venv /automation_Robot_app
-RUN source /automation_Robot_app/bin/activate
+WORKDIR /usr/bin
 
 #installing pip
 RUN yum install python3-pip
@@ -25,19 +22,25 @@ RUN pip install  robotframework-pabot==1.0.0
 RUN pip install autoit
 RUN pip install pyautoit
 
+#COPY /usr/local/lib/python3.6 /usr/bin
+
 #Install chrome
-RUN curl https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -o chrome.rpm
-RUN yum install -y chrome.rpm
+RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+RUN yum install -y google-chrome-stable_current_x86_64.rpm
+RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip
-RUN mv chromedriver-linux64/chromedriver /usr/local/bin
-RUN chmod +x /usr/local/bin/chromedriver
+RUN mv chromedriver-linux64/chromedriver /usr/bin
+RUN chmod +x /usr/bin/chromedriver
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip && ./aws/install
 
+#setting python environment
+#RUN python3 -m venv /automation_Robot_app
+#RUN source /automation_Robot_app/bin/activate
 WORKDIR /automation_Robot_app
 COPY test2.sh .
 RUN chmod +x test2.sh
