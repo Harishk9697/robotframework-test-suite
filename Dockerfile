@@ -32,7 +32,7 @@ RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.
 RUN unzip chromedriver-linux64.zip -d /usr/local/bin/
 RUN rm -f chromedriver-linux64.zip
 #RUN mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-RUN chmod +x /usr/local/bin/chromedriver
+RUN chmod +x /usr/local/bin/chromedriver-linux64/chromedriver
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
