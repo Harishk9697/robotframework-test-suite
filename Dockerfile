@@ -32,8 +32,8 @@ ENV PATH=$CHROME_PATH:$PATH
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip
-RUN mv -f chromedriver /usr/local/bin/chromedriver
 RUN rm -rf chromedriver-linux64.zip
+RUN mv -f chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 RUN chmod 0755 /usr/local/bin/chromedriver
 
 #install aws cli
