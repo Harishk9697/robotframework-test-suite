@@ -9,14 +9,7 @@ RUN yum update -y && \
 RUN yum install -y python3-pip
 RUN python3 -m pip install --upgrade pip 
 
-#USER pwuser
-RUN pip3 install --user robotframework==5
-RUN pip3 install --user robotframework-browser==16.3.0
-RUN ~/.local/bin/rfbrowser init
-#ENV NODE_PATH=/usr/lib/node_modules
-ENV PATH="/home/pwuser/.local/bin:${PATH}"
-
-#RUN pip install robotframework==5
+RUN pip install robotframework==5
 RUN pip install wheel==0.37.0 
 #RUN pip install robotframework-ride==2.0.6 
 RUN pip install robotframework-selenium2library==3.0.0 
@@ -25,21 +18,23 @@ RUN pip install selenium==3.141.0
 RUN pip install setuptools==47.1.0 
 RUN pip install robotframework-requests
 #RUN pip install robotframework-browser
-RUN pip install  robotframework-pabot==1.0.0
+RUN pip install robotframework-pabot==1.0.0
 RUN pip install pyautoit
 
 #Install chrome
-#RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-#RUN yum -y localinstall google-chrome-stable_current_x86_64.rpm
-#RUN rm -f google-chrome-stable_current_*.rpm
+RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+RUN yum -y localinstall google-chrome-stable_current_x86_64.rpm
+RUN rm -f google-chrome-stable_current_*.rpm
 #RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
 #RUN mv /usr/bin/google-chrome /usr/bin/chrome
-#
-#RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
-#RUN unzip chromedriver-linux64.zip
-#RUN mv chromedriver-linux64/chromedriver /usr/bin/chromedriver
-#RUN rm -f chromedriver-linux64.zip
-#RUN chmod +x /usr/bin/chromedriver
+ENV CHROME_PATH=/usr/bin/google-chrome
+ENV PATH=$CHROME_PATH:$PATH
+
+RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
+RUN unzip chromedriver-linux64.zip
+RUN mv -f chromedriver /usr/local/bin/chromedriver
+RUN rm -rf chromedriver-linux64.zip
+RUN chmod 0755 /usr/local/bin/chromedriver
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
