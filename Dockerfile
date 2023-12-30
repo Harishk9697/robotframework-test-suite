@@ -31,6 +31,10 @@ RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.
     mv chromedriver /usr/local/bin && \
     chmod +x /usr/local/bin/chromedriver
 
+#install aws cli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip && ./aws/install
+
 WORKDIR /automation_Robot_app
 COPY test2.sh .
 RUN chmod +x test2.sh
