@@ -6,6 +6,10 @@ RUN yum update -y && \
 RUN useradd -ms /bin/bash robotuser
 USER robotuser
 
+#setting python environment
+RUN python3 -m venv /automation_Robot_app
+RUN source /automation_Robot_app/bin/activate
+
 #installing pip
 RUN yum install python3-pip
 RUN python3 -m pip install --upgrade pip 
