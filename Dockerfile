@@ -1,6 +1,7 @@
 FROM centos:7
 
 USER root
+WORKDIR /usr/bin
 
 RUN yum update -y && \
     yum install -y epel-release gcc xorg-x11-server-Xvfb gtk3 wget unzip git libXScrnSaver GConf2 ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic xorg-x11-fonts-Type1 xorg-x11-fonts-misc
@@ -32,8 +33,8 @@ RUN pip install pyautoit
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chrome-linux64.zip
 RUN unzip chrome-linux64.zip
 RUN ls
-RUN mv -f chrome-linux64 /usr/bin
-ENV CHROME_PATH=usr/bin/chrome-linux64/chrome
+RUN mv -f chrome-linux64/chrome /usr/bin
+ENV CHROME_PATH=usr/bin/chrome
 ENV PATH=$CHROME_PATH:$PATH
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
@@ -49,7 +50,7 @@ RUN unzip awscliv2.zip && ./aws/install
 #setting python environment
 #RUN python3 -m venv /automation_Robot_app
 #RUN source /automation_Robot_app/bin/activate
-#WORKDIR /usr/src/app
+WORKDIR /automation_Robot_app
 COPY test2.sh .
 RUN chmod +x test2.sh
 
