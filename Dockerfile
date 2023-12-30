@@ -33,7 +33,7 @@ RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.
 RUN unzip chrome-linux64.zip
 RUN ls
 RUN mv -f chrome-linux64 /usr/bin
-ENV CHROME_PATH=usr/bin/chrome
+ENV CHROME_PATH=usr/bin/chrome-linux64/chrome
 ENV PATH=$CHROME_PATH:$PATH
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
