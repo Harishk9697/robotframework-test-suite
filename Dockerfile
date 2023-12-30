@@ -3,8 +3,7 @@ FROM centos:7
 RUN yum update -y && \
     yum install -y epel-releasegcc python3 python3-pip pyhton3-devel xorg-x11-server-Xvfb gtk3 wget unzip git
 
-RUN useradd -ms /bin/bash robotuser
-USER robotuser
+USER root
 
 #setting python environment
 RUN python3 -m venv /automation_Robot_app
