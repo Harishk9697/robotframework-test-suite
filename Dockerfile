@@ -26,13 +26,13 @@ RUN pip install autoit
 RUN pip install pyautoit
 
 #Install chrome
-RUN curl https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -o chrome.rpm && \
-    yum install -y chrome.rpm
+RUN curl https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -o chrome.rpm
+RUN yum install -y chrome.rpm
 
-RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip && \
-    unzip chromedriver-linux64.zip && \
-    mv chromedriver /usr/local/bin && \
-    chmod +x /usr/local/bin/chromedriver
+RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
+RUN unzip chromedriver-linux64.zip
+RUN mv chromedriver-linux64/chromedriver /usr/local/bin
+RUN chmod +x /usr/local/bin/chromedriver
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
