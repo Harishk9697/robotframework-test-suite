@@ -11,7 +11,7 @@ RUN python3 -m pip install --upgrade pip
 
 #USER pwuser
 RUN pip3 install --user robotframework==5
-RUN pip3 install --user robotframework-browser
+RUN pip3 install --user robotframework-browser==16.3.0
 RUN ~/.local/bin/rfbrowser init
 #ENV NODE_PATH=/usr/lib/node_modules
 ENV PATH="/home/pwuser/.local/bin:${PATH}"
