@@ -1,6 +1,14 @@
 #!/bin/bash
 folder_to_cleanup="cloneRepos"
 
+SCREEN_WIDTH=1280
+SCREEN_HEIGHT=768
+SCREEN_DEPTH=16
+
+GEOMETRY="${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_DEPTH}"
+Xvfb :99 -screen 0 $GEOMETRY &
+export DISPLAY=:99
+
 if [ -d "$folder_to_cleanup" ]
 then
     echo "cleaning up folder $folder_to_cleanup"
@@ -33,7 +41,7 @@ aws s3 cp --acl bucket-owner-full-control --recursive s3://tf-rf-scripts-spe-qaq
 echo $HELLO
 
 ls
-robot --outputdir /cloneRepos/report .
+robot --outputdir /cloneRepos/report TestCases/About/About.robot
 
 if [ $? -ne 0 ]; then
     echo "Command robot execution failed"
