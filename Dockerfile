@@ -61,6 +61,8 @@ RUN rm -rf Python-3.7.12.tgz && \
     yum clean all && \
     rm -rf /var/cache/yum
 
+RUN rm -f /usr/bin/python3
+
 # Verify Python installation
 RUN python3.7 --version
 
@@ -71,7 +73,7 @@ RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3
 #RUN yum install -y python3
 
 #setting python environment
-RUN python3 -m venv /automation_Robot_app
+RUN python3.7 -m venv /automation_Robot_app
 RUN source /automation_Robot_app/bin/activate
 
 WORKDIR /automation_Robot_app
@@ -79,8 +81,8 @@ COPY test2.sh .
 RUN chmod +x test2.sh
 
 #installing pip
-RUN yum install -y python3-pip
-RUN python3 -m pip install --upgrade pip 
+RUN yum install -y python3.7-pip
+RUN python3.7 -m pip install --upgrade pip 
 
 RUN pip install robotframework==5
 RUN pip install wheel==0.37.0 
