@@ -90,6 +90,7 @@ RUN pip install robotframework-seleniumlibrary==5.1.3
 RUN pip install selenium==3.141.0 
 RUN pip install setuptools==47.1.0 
 RUN pip install robotframework-requests
+RUN pip install wxPython==4.0.7.post2 
 #RUN pip install chromedriver-binary
 RUN pip install robotframework-pabot==1.0.0
 RUN pip install pyautoit
