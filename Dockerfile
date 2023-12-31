@@ -9,25 +9,16 @@ RUN yum update -y && \
 #Install chrome
 RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum -y localinstall google-chrome-stable_current_x86_64.rpm
-RUN rm -f google-chrome-stable_current_*.rpm
-RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
-ENV CHROME_PATH=/usr/bin/google-chrome
-ENV PATH=$CHROME_PATH:$PATH
-
-#RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chrome-linux64.zip
-#RUN unzip chrome-linux64.zip
-#RUN ls
-#RUN mv -f chrome-linux64/chrome /usr/bin
-#ENV CHROME_PATH=usr/bin/chrome
+#RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
+RUN mv /opt/google /usr/bin
+#ENV CHROME_PATH=/usr/bin/google-chrome
 #ENV PATH=$CHROME_PATH:$PATH
 
-#RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
-#RUN unzip chromedriver-linux64.zip
-#RUN rm -rf chromedriver-linux64.zip
-#RUN mv -f chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
-#RUN chmod 0755 /usr/local/bin/chromedriver
-
-ENV PATH="/usr/local/bin:${PATH}"
+RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
+RUN unzip chromedriver-linux64.zip
+RUN rm -rf chromedriver-linux64.zip
+RUN mv -f chromedriver-linux64/chromedriver /usr/bin/chromedriver
+RUN chmod 0755 /usr/bin/chromedriver
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -56,7 +47,7 @@ RUN pip install robotframework-seleniumlibrary==5.1.3
 RUN pip install selenium==3.141.0 
 RUN pip install setuptools==47.1.0 
 RUN pip install robotframework-requests
-RUN pip install chromedriver-binary
+#RUN pip install chromedriver-binary
 #RUN pip install robotframework-browser
 RUN pip install robotframework-pabot==1.0.0
 RUN pip install pyautoit
