@@ -81,7 +81,7 @@ COPY test2.sh .
 RUN chmod +x test2.sh
 
 #installing pip
-RUN yum install -y python3.7-pip
+RUN yum install -y python3-pip
 RUN python3.7 -m pip install --upgrade pip 
 
 RUN pip install robotframework==5
