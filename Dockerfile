@@ -93,7 +93,7 @@ RUN pip install robotframework-requests
 #RUN pip install chromedriver-binary
 RUN pip install robotframework-pabot==1.0.0
 RUN pip install pyautoit
-RUN pip install robotframework-browser
-RUN rfbrowser init
+#RUN pip install robotframework-browser
+#RUN rfbrowser init
 
 CMD ["robot"]
