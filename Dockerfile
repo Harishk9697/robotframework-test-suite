@@ -33,6 +33,9 @@ ENV PATH="/usr/local/bin:${PATH}"
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip && ./aws/install
 
+RUN yum update -y
+RUN yum install -y python3
+
 #setting python environment
 RUN python3 -m venv /automation_Robot_app
 RUN source /automation_Robot_app/bin/activate
