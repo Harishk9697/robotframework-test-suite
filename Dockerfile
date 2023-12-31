@@ -4,13 +4,14 @@ USER root
 WORKDIR /usr/bin
 
 RUN yum update -y && \
-    yum install -y epel-release gcc xorg-x11-server-Xvfb gtk3 wget unzip git libXScrnSaver GConf2
+    yum install -y epel-release gcc xorg-x11-server-Xvfb gtk3 wget unzip git libXScrnSaver GConf2 libnss3 software-properties-common 
 
 #Install chrome
 RUN curl -O  https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum -y localinstall google-chrome-stable_current_x86_64.rpm
 #RUN mv /usr/bin/google-chrome-stable /usr/bin/google-chrome
 RUN mv /opt/google /usr/bin
+RUN mv  /usr/bin/google/chrome/chrome /usr/bin
 #ENV CHROME_PATH=/usr/bin/google-chrome
 #ENV PATH=$CHROME_PATH:$PATH
 
