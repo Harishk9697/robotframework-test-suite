@@ -43,6 +43,8 @@ echo $HELLO
 ls
 robot --outputdir /cloneRepos/report TestCases/About/About.robot
 
+killall Xvfb
+
 if [ $? -ne 0 ]; then
     echo "Command robot execution failed"
     aws s3 cp --acl bucket-owner-full-control --recursive /cloneRepos/report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
