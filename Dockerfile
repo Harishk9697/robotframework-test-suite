@@ -4,7 +4,7 @@ USER root
 WORKDIR /usr/bin
 
 RUN yum update -y && \
-    yum install -y epel-release gcc xorg-x11-server-Xvfb gtk3 wget unzip git libXScrnSaver GConf2 ipa-gothic-fonts xorg-x11-fonts-100dpi xorg-x11-fonts-75dpi xorg-x11-utils xorg-x11-fonts-cyrillic xorg-x11-fonts-Type1 xorg-x11-fonts-misc
+    yum install -y epel-release gcc xorg-x11-server-Xvfb gtk3 wget unzip git libXScrnSaver GConf2 chromium
 
 #installing pip
 RUN yum install -y python3-pip
@@ -30,18 +30,20 @@ RUN pip install pyautoit
 #ENV CHROME_PATH=/usr/bin/google-chrome
 #ENV PATH=$CHROME_PATH:$PATH
 
-RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chrome-linux64.zip
-RUN unzip chrome-linux64.zip
-RUN ls
-RUN mv -f chrome-linux64/chrome /usr/bin
-ENV CHROME_PATH=usr/bin/chrome
-ENV PATH=$CHROME_PATH:$PATH
+#RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chrome-linux64.zip
+#RUN unzip chrome-linux64.zip
+#RUN ls
+#RUN mv -f chrome-linux64/chrome /usr/bin
+#ENV CHROME_PATH=usr/bin/chrome
+#ENV PATH=$CHROME_PATH:$PATH
 
 RUN wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chromedriver-linux64.zip
 RUN unzip chromedriver-linux64.zip
 RUN rm -rf chromedriver-linux64.zip
 RUN mv -f chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 RUN chmod 0755 /usr/local/bin/chromedriver
+
+ENV PATH="/usr/local/bin:${PATH}"
 
 #install aws cli
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
