@@ -26,7 +26,11 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2
 RUN unzip awscliv2.zip && ./aws/install
 
 RUN yum update -y
-RUN yum install -y python3
+RUN yum install -y python3.7
+
+## Install Node.js
+RUN curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
+RUN yum -y install nodejs
 
 #setting python environment
 RUN python3 -m venv /automation_Robot_app
@@ -49,8 +53,9 @@ RUN pip install selenium==3.141.0
 RUN pip install setuptools==47.1.0 
 RUN pip install robotframework-requests
 #RUN pip install chromedriver-binary
-#RUN pip install robotframework-browser
 RUN pip install robotframework-pabot==1.0.0
 RUN pip install pyautoit
+RUN pip install robotframework-browser
+RUN rfbrowser init
 
 CMD ["robot"]
