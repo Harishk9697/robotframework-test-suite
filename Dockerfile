@@ -5,6 +5,7 @@ WORKDIR /usr/bin
 
 RUN yum -y update && yum -y install \
     epel-release \
+    sudo \
     gcc \
     xorg-x11-server-Xvfb \
     gtk3 \
