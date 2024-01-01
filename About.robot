@@ -12,8 +12,9 @@ TC2_ProdHomePage
     Call Method    ${options}    add_argument    --disable-backgrounding-occluded-windows
     Call Method    ${options}    add_argument    --disable-gpu
     Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --window-size=1968,856
     Create Webdriver    Chrome    options=${options}
-    Set Window Size    1968    856
+    #Set Window Size    1968    856
     Go To    https://www.jeopardy.com/
     Set Browser Implicit Wait    30s
     Set Selenium Implicit Wait    30s
