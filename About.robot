@@ -16,10 +16,9 @@ TC2_ProdHomePage
     Go To    https://www.jeopardy.com/
     Set Browser Implicit Wait    30s
     Set Selenium Implicit Wait    30s
-    Maximize Browser Window
+    Comment    Maximize Browser Window
     ${width}    ${height}=    Get Window Size
-    Comment    Set Window Size    1968    856
-    Maximize Browser Window
+    Set Window Size    1968    856
     #sleep    10s
     Comment    Capture Page Screenshot
     ${IsElementVisible}=    Get Element Count    //*[@aria-label='Privacy']
