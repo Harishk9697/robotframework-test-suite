@@ -7,7 +7,7 @@ Library           Selenium2Library
 *** Test Cases ***
 TC2_ProdHomePage
     #Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()
+    ${options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${options}    add_argument    --headless
     Call Method    ${options}    add_argument    --disable-backgrounding-occluded-windows
     Call Method    ${options}    add_argument    --disable-gpu
