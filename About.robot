@@ -13,12 +13,12 @@ TC2_ProdHomePage
     Call Method    ${options}    add_argument    --disable-gpu
     Call Method    ${options}    add_argument    --no-sandbox
     Create Webdriver    Chrome    options=${options}
+    Set Window Size    1968    856
     Go To    https://www.jeopardy.com/
     Set Browser Implicit Wait    30s
     Set Selenium Implicit Wait    30s
     Comment    Maximize Browser Window
     ${width}    ${height}=    Get Window Size
-    Set Window Size    1968    856
     #sleep    10s
     Comment    Capture Page Screenshot
     ${IsElementVisible}=    Get Element Count    //*[@aria-label='Privacy']
