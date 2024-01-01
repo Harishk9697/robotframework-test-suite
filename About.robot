@@ -6,8 +6,10 @@ Library           Selenium2Library
 
 *** Test Cases ***
 TC2_ProdHomePage
-    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
+    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")    reuse_session=True
     Set Browser Implicit Wait    30s
+    Set Selenium Page Load Timeout    30s
+    Set Selenium Implicit Wait    30s
     Maximize Browser Window
     ${width}    ${height}=    Get Window Size
     Comment    Set Window Size    1968    856
