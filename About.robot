@@ -17,6 +17,7 @@ TC2_ProdHomePage
     #Execute Javascript    window.resizeTo(1968,856)
     Go To    https://www.jeopardy.com/
     Set Browser Implicit Wait    40s
+    Set Selenium Implicit Wait    50s
     Set Selenium Timeout    30s
     Set Window Size    1968    856
     Comment    Maximize Browser Window
