@@ -6,19 +6,19 @@ Library           Selenium2Library
 
 *** Test Cases ***
 TC2_ProdHomePage
-    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
-    Set Window Size    1968    856
-    #${options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
-    #Call Method    ${options}    add_argument    --headless
-    #Call Method    ${options}    add_argument    --disable-backgrounding-occluded-windows
-    #Call Method    ${options}    add_argument    --disable-gpu
-    #Call Method    ${options}    add_argument    --no-sandbox
-    #Call Method    ${options}    add_argument    --window-size=1968,856
+    #Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
+    ${options}    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-backgrounding-occluded-windows
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --window-size=1968,856
     Set Selenium Implicit Wait    50s
     Set Selenium Timeout    30s
-    #Create Webdriver    Chrome    options=${options}
-    #Go To    https://www.jeopardy.com/
+    Create Webdriver    Chrome    options=${options}
+    Go To    https://www.jeopardy.com/
     Set Browser Implicit Wait    40s
+    Set Window Size    1968    856
     Comment    Maximize Browser Window
     ${width}    ${height}=    Get Window Size
     sleep    10s
