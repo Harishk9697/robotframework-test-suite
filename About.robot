@@ -10,8 +10,8 @@ TC2_ProdHomePage
     Set Browser Implicit Wait    5s
     Maximize Browser Window
     ${width}    ${height}=    Get Window Size
-    Set Window Size    1968    856
-    Comment    Maximize Browser Window
+    Comment    Set Window Size    1968    856
+    Maximize Browser Window
     sleep    10s
     Comment    Capture Page Screenshot
     ${IsElementVisible}=    Get Element Count    //*[@aria-label='Privacy']
