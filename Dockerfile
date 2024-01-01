@@ -19,6 +19,14 @@ RUN yum -y update && yum -y install \
     libXrandr \
     libXScrnSaver \
     libXt \
+    zlib-devel \
+    libffi-devel \
+    openssl-devel \
+    bzip2-devel \
+    xz-devel \
+    readline-devel \
+    sqlite-devel \
+    tar \
     xorg-x11-fonts-Type1 \
     xorg-x11-fonts-75dpi \
     xorg-x11-fonts-cyrillic \
