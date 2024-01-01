@@ -27,8 +27,8 @@ RUN yum update -y
 RUN yum install -y python3
 
 #setting python environment
-RUN python3 -m venv /automation_Robot_app
-RUN source /automation_Robot_app/bin/activate
+#RUN python3 -m venv /automation_Robot_app
+#RUN source /automation_Robot_app/bin/activate
 
 WORKDIR /automation_Robot_app
 COPY test2.sh .
