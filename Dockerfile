@@ -79,12 +79,12 @@ RUN wget https://www.openssl.org/source/openssl-1.1.1l.tar.gz && \
     make && \
     make install && \
     rm -rf /openssl-1.1.1l.tar.gz /openssl-1.1.1l
-    
+
 # Update library cache
 RUN ldconfig
 
 # Verify OpenSSL version
-RUN /usr/local/openssl/bin/openssl version
+#RUN /usr/local/openssl/bin/openssl version
 
 # Set environment variables to use the new OpenSSL version
 ENV LD_LIBRARY_PATH=/usr/local/openssl/lib/:$LD_LIBRARY_PATH
