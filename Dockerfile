@@ -69,4 +69,4 @@ RUN chmod +x test2.sh
 # COPY . .
 
 # Define command to execute tests (Example command)
-CMD ["robot", "--outputdir", "/robotframework/reports", "/robotframework/tests"]
+#CMD ["robot", "--outputdir", "/robotframework/reports", "/robotframework/tests"]
