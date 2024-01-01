@@ -20,7 +20,7 @@ TC2_ProdHomePage
     ${width}    ${height}=    Get Window Size
     Comment    Set Window Size    1968    856
     Maximize Browser Window
-    sleep    10s
+    #sleep    10s
     Comment    Capture Page Screenshot
     ${IsElementVisible}=    Get Element Count    //*[@aria-label='Privacy']
     Comment    Run Keyword If    ${IsElementVisible}>0    Selenium2Library.Click Element    //button[contains(text(),'Accept all cookies')]
