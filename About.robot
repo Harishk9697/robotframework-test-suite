@@ -9,6 +9,9 @@ TC2_ProdHomePage
     #Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()
     Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-backgrounding-occluded-windows
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --no-sandbox
     Create Webdriver    Chrome    options=${options}
     Go To    https://www.jeopardy.com/
     Set Browser Implicit Wait    30s
