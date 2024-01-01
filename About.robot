@@ -13,13 +13,13 @@ TC2_ProdHomePage
     Call Method    ${options}    add_argument    --disable-gpu
     Call Method    ${options}    add_argument    --no-sandbox
     #Call Method    ${options}    add_argument    --window-size=1968,856
+    Set Selenium Implicit Wait    50s
+    Set Selenium Timeout    30s
     Create Webdriver    Chrome    options=${options}
     #Execute Javascript    window.resizeTo(1968,856)
     Go To    https://www.jeopardy.com/
     Set Window Size    1968    856
     Set Browser Implicit Wait    40s
-    Set Selenium Implicit Wait    50s
-    Set Selenium Timeout    30s
     Comment    Maximize Browser Window
     ${width}    ${height}=    Get Window Size
     sleep    10s
