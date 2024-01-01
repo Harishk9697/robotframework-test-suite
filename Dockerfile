@@ -63,6 +63,14 @@ RUN rm -rf Python-3.7.12.tgz && \
     yum clean all && \
     rm -rf /var/cache/yum
 
+RUN rm -f /usr/bin/python3
+
+# Verify Python installation
+RUN python3.7 --version
+
+# Set symbolic link for python3 to refer to Python 3.7
+RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3
+
 # Download and install OpenSSL 1.1.1l (replace version number as needed)
 RUN wget https://www.openssl.org/source/openssl-1.1.1l.tar.gz && \
     tar -zxvf openssl-1.1.1l.tar.gz && \
@@ -101,13 +109,5 @@ RUN pip install robotframework-pabot==1.0.0
 RUN pip install pyautoit
 #RUN pip install robotframework-browser
 #RUN rfbrowser init
-
-RUN rm -f /usr/bin/python3
-
-# Verify Python installation
-RUN python3.7 --version
-
-# Set symbolic link for python3 to refer to Python 3.7
-RUN ln -s /usr/local/bin/python3.7 /usr/bin/python3
 
 CMD ["robot"]
