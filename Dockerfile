@@ -26,8 +26,17 @@ RUN yum -y update && yum -y install \
     xorg-x11-fonts-misc
 
 # Install Python 3.7
+#RUN yum -y install yum-utils && \
+#    yum -y install https://centos7.iuscommunity.org/ius-release.rpm && \
+#    yum -y install python37u python37u-pip
+
+RUN wget https://www.python.org/ftp/python/3.7.12/Python-3.7.12.tgz && \
+    tar xzf Python-3.7.12.tgz && \
+    cd Python-3.7.12 && \
+    ./configure --enable-optimizations && \
+    make altinstall
+
 RUN yum -y install yum-utils && \
-    yum -y install https://centos7.iuscommunity.org/ius-release.rpm && \
     yum -y install python37u python37u-pip
 
 # Install Chrome browser
