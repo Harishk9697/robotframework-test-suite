@@ -17,9 +17,10 @@ TC2_ProdHomePage
     #Execute Javascript    window.resizeTo(1968,856)
     #Set Window Size    1968    856
     Go To    https://www.jeopardy.com/
-    Wait Until Keyword Succeeds    10s    0.1s    Selenium2Library.Set Window Size    1968    856
+    Execute Javascript    window.resizeTo(1968,856)
     Set Browser Implicit Wait    30s
     Set Selenium Implicit Wait    30s
+    Set Selenium Timeout    30s
     Comment    Maximize Browser Window
     ${width}    ${height}=    Get Window Size
     #sleep    10s
