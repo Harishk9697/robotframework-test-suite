@@ -6,7 +6,7 @@ Library           Selenium2Library
 
 *** Test Cases ***
 TC2_ProdHomePage
-    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")    reuse_session=True
+    Open Browser    https://www.jeopardy.com/    chrome    options=add_argument("--disable-backgrounding-occluded-windows");add_argument("--headless");add_argument("--disable-gpu");add_argument("--no-sandbox")
     Set Browser Implicit Wait    30s
     Set Selenium Page Load Timeout    30s
     Set Selenium Implicit Wait    30s
