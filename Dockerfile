@@ -79,13 +79,23 @@ RUN wget https://www.openssl.org/source/openssl-1.1.1l.tar.gz && \
     make && \
     make install && \
     rm -rf /openssl-1.1.1l.tar.gz /openssl-1.1.1l
+    
+# Update library cache
+RUN ldconfig
+
+# Verify OpenSSL version
+RUN /usr/local/openssl/bin/openssl version
+
+# Set environment variables to use the new OpenSSL version
+ENV LD_LIBRARY_PATH=/usr/local/openssl/lib/:$LD_LIBRARY_PATH
+ENV PATH=/usr/local/openssl/bin:$PATH
 
 #RUN yum update -y
 #RUN yum install -y python3
 
 #setting python environment
-RUN python3.7 -m venv /automation_Robot_app
-RUN source /automation_Robot_app/bin/activate
+#RUN python3.7 -m venv /automation_Robot_app
+#RUN source /automation_Robot_app/bin/activate
 
 WORKDIR /automation_Robot_app
 COPY test2.sh .
