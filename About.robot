@@ -14,9 +14,10 @@ TC2_ProdHomePage
     Call Method    ${options}    add_argument    --no-sandbox
     #Call Method    ${options}    add_argument    --window-size=1968,856
     Create Webdriver    Chrome    options=${options}
-    Execute Javascript    window.resizeTo(1968,856)
+    #Execute Javascript    window.resizeTo(1968,856)
     #Set Window Size    1968    856
     Go To    https://www.jeopardy.com/
+    Wait Until Keyword Succeeds    10s    0.1s    Selenium2Library.Set Window Size    1968    856
     Set Browser Implicit Wait    30s
     Set Selenium Implicit Wait    30s
     Comment    Maximize Browser Window
