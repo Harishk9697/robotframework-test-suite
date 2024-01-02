@@ -19,15 +19,15 @@ else
     mkdir cloneRepos
 fi
 
+cd cloneRepos
+
 echo "in script file"
 #github_url="https://github.com/Harishk9697/robotframework-test-suite.git"
 #echo $github_url
-#aws s3 cp --acl bucket-owner-full-control --recursive s3://tf-rf-scripts-spe-qaqc-bucket/JeopardyTestCase/JEOPARDY/ . && echo "Copied test cases from s3 bucket" || echo "Copying test cases from s3 bucket failed"
-git clone https://github.com/Harishk9697/robotframework-test-suite.git cloneRepos
+aws s3 cp --acl bucket-owner-full-control --recursive s3://tf-rf-scripts-spe-qaqc-bucket/JeopardyTestCase/JEOPARDY/ . && echo "Copied test cases from s3 bucket" || echo "Copying test cases from s3 bucket failed"
+#git clone https://github.com/Harishk9697/robotframework-test-suite.git cloneRepos
 #repo_basename=$(basename "$github_url")
 echo $HELLO
-
-cd cloneRepos
 
 report_folder_to_cleanup="report"
 if [ -d "$report_folder_to_cleanup" ]
@@ -42,6 +42,7 @@ fi
 
 ls
 robot --outputdir /cloneRepos/report .
+#pabot --processes 1 --outputdir /cloneRepos/report .
 
 killall Xvfb
 
