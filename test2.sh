@@ -1,13 +1,13 @@
 #!/bin/bash
 folder_to_cleanup="cloneRepos"
 
-SCREEN_WIDTH=1280
-SCREEN_HEIGHT=768
-SCREEN_DEPTH=16
-
-GEOMETRY="${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_DEPTH}"
-Xvfb :99 -screen 0 $GEOMETRY &
-export DISPLAY=:99
+#SCREEN_WIDTH=1280
+#SCREEN_HEIGHT=768
+#SCREEN_DEPTH=16
+#
+#GEOMETRY="${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_DEPTH}"
+#Xvfb :99 -screen 0 $GEOMETRY &
+#export DISPLAY=:99
 
 if [ -d "$folder_to_cleanup" ]
 then
@@ -44,7 +44,7 @@ ls
 robot --outputdir /cloneRepos/report .
 #pabot --processes 1 --outputdir /cloneRepos/report .
 
-killall Xvfb
+#killall Xvfb
 
 if [ $? -ne 0 ]; then
     echo "Command robot execution failed"
