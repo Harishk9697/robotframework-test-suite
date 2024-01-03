@@ -18,9 +18,10 @@ TC2_ProdHomePage
     Set Selenium Timeout    30s
     Create Webdriver    Chrome    options=${options}
     Go To    https://www.jeopardy.com/
+    Maximize Browser Window
+    ${width}    ${height}=    Get Window Size
     Set Browser Implicit Wait    40s
     Set Window Size    1968    856
-    Comment    Maximize Browser Window
     ${width}    ${height}=    Get Window Size
     sleep    10s
     Comment    Capture Page Screenshot
