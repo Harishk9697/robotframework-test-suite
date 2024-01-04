@@ -51,7 +51,7 @@ RUN pip install  robotframework-pabot==1.0.0
 RUN pip install autoit
 RUN pip install pyautoit
 
-CMD ["sh test2.sh"]
+CMD ["sh", "test2.sh"]
 
 #copy file from S3 bucket to ec2
 #RUN aws s3 cp s3://tf-rf-scripts-spe-qaqc-bucket/scripts/TestSuite.robot testsuite.robot
