@@ -49,8 +49,8 @@ pabot --processes 2 --outputdir report .
 
 if [ $? -ne 0 ]; then
     echo "Command robot execution failed"
-    aws s3 cp --acl bucket-owner-full-control --recursive /cloneRepos/report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
+    aws s3 cp --acl bucket-owner-full-control --recursive report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
 else
     echo "Command robot execution passed"
-    aws s3 cp --acl bucket-owner-full-control --recursive /cloneRepos/report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
+    aws s3 cp --acl bucket-owner-full-control --recursive report s3://tf-rf-scripts-spe-qaqc-bucket/RobotFrameworkReport/ && echo "Copied report to s3 bucket" || echo "Copying report to s3 bucket failed"
 fi
