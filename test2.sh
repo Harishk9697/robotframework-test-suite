@@ -42,7 +42,7 @@ fi
 
 ls
 #robot --outputdir report .
-pabot --processes 2 --outputdir report .
+pabot --processes 5 --outputdir report .
 #pabot --processes 2 --testlevelsplit --outputdir C:\Users\HKumar6\AutoLogs\MySpe TestSuites_Publicity_Admin\Theatre_Management.robot
 
 #killall Xvfb
