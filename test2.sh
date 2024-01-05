@@ -41,8 +41,9 @@ else
 fi
 
 ls
-robot --outputdir /cloneRepos/report .
-#pabot --processes 1 --outputdir /cloneRepos/report .
+#robot --outputdir /cloneRepos/report .
+pabot --processes 2 --outputdir /cloneRepos/report .
+#pabot --processes 2 --testlevelsplit --outputdir C:\Users\HKumar6\AutoLogs\MySpe TestSuites_Publicity_Admin\Theatre_Management.robot
 
 #killall Xvfb
 
